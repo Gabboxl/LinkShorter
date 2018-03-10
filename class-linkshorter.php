@@ -13,9 +13,9 @@
 #		bitly credentials
 
     //your bitly username
-    $userbitly = "gabboxl";
+    $userbitly = "";
     //your bitly apikey
-    $keybitly = "R_015b26e7107b4c7c9ec11723ada42df6";
+    $keybitly = "";
 	
     
 
@@ -113,11 +113,8 @@
 
 
    		
-	}
+}
 
-$a = new linkshorter("bitly", "http://google.com");
-
-echo $a->getLink();
 
 
 
