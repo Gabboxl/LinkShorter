@@ -117,8 +117,8 @@
 	    $query = array(
 	        "version" => "2.0.1",
 	        "longUrl" => $url,
-	        "login" => $userbitly, // replace with your login
-	        "apiKey" => $keybitly // replace with your api key
+	        "login" => $userbitly, // login variable
+	        "apiKey" => $keybitly // api key variable
 	    );
 	
 	    $query = http_build_query($query);
