@@ -41,6 +41,11 @@
 #		google crednetials
     // Get API key from : http://code.google.com/apis/console/
     	$apiKeygoogle = 'your api key here';
+		
+
+#		adfocus credentials key
+			$adfocKey = "66ebaa219a97eac02d8690addc1d8a4e";
+		
 	
     
 
@@ -53,7 +58,7 @@
         
 		function __construct($service, $link, $domain = null, $advert_type = null) {
             
-            if ($service == "adfly" || $service == "bitly" || $service == "googl" and $link != "" or $link != null) {
+            if ($service == "adfly" || $service == "bitly" || $service == "googl" || $service == "adfocus" and $link != "" or $link != null) {
             $this->$service($link, $domain, $advert_type);
         } else {
             $this->setError("Invalid service: $service or link not set");
@@ -98,6 +103,19 @@
 	  if ($data = file_get_contents($api))
 	    $this->response = $data;
 	}
+	
+	
+	private function adfocus($url) {
+		global $adfocKey;
+		
+		$adfoch = file_get_contents("http://adfoc.us/api/?key=$adfocKey&url=$url");
+		
+		$this->response   =   $adfoch;
+		
+		
+		
+	}
+	
 	
 
 	private function googl($url) {

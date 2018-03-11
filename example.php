@@ -21,6 +21,6 @@
 
 require 'class-linkshorter.php';
 
-$a = new linkshorter("adfly", "");
+$a = new linkshorter("adfly", "https://google.com");
 
 echo $a->getLink();
