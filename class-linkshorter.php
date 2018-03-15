@@ -70,7 +70,6 @@
         } else {
             $this->setError("Invalid service: $service or link not set");
             return;
-			exit;
         }
  		}
 
