@@ -85,7 +85,6 @@
     }
 
 
-
     function getLink() {
 			if(isset($this->response))
     		return $this->response;
@@ -117,8 +116,12 @@
 		} else {
 			$jzon = json_decode($dataz, true);
 
-			if(isset($jzon["errors"][0]["msg"]))
-				$this->setError($jzon["errors"][0]["msg"]);
+				if(isset($jzon["errors"][0]["msg"])) {
+					$this->setError($jzon["errors"][0]["msg"]);
+				} else {
+					if(isset($jzon["warnings"][0]["msg"])) {
+						$this->setError($jzon["warnings"][0]["msg"]);
+				}
 		}
 	}
 
