@@ -106,6 +106,11 @@
 	  // full api url with query string
 	  $api = $api . http_build_query($query);
 	  // get data
+
+		if (!strpos($data = file_get_contents($api), "http"))
+		  $this->setError($data);
+
+
 	  if ($data = file_get_contents($api))
 	    $this->response = $data;
 	}
