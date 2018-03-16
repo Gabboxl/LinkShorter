@@ -23,4 +23,6 @@ require 'class-linkshorter.php';
 
 $a = new linkshorter("adfly", "https://google.com");
 
-echo $a->getLink()."a";
+echo "Link: ".$a->getLink()."<br>";
+echo "Errors: ".$a->getError()."<br>";
+echo "Warnings: ".$a->getWarning();

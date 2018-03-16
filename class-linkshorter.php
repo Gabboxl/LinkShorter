@@ -80,11 +80,15 @@
     }
 
     function getError() {
+			if(isset($this->error))
         return $this->error;
     }
 
+
+
     function getLink() {
-    	return $this->response;
+			if(isset($this->response))
+    		return $this->response;
     }
 
       private function adfly($url, $domain = 'adf.ly', $advert_type = 'int') {
@@ -106,13 +110,16 @@
 	  // full api url with query string
 	  $api = $api . http_build_query($query);
 	  // get data
+		$dataz = file_get_contents($api);
 
-		if (!strpos($data = file_get_contents($api), "http"))
-		  $this->setError($data);
+		if (strpos(" ".$dataz, "http")) {
+		  $this->response = $dataz;
+		} else {
+			$jzon = json_decode($dataz, true);
 
-
-	  if ($data = file_get_contents($api))
-	    $this->response = $data;
+			if(isset($jzon["errors"][0]["msg"]))
+				$this->setError($jzon["errors"][0]["msg"]);
+		}
 	}
 
 
