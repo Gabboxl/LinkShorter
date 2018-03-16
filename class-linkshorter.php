@@ -130,7 +130,7 @@
 
 	private function shinkin($url) {
 		global $shinkid;
-		global
+		global $shinktoken;
 
 		$data = file_get_contents("http://shink.me/stxt/0/id/$shinkid/auth_token/$shinktoken?s=$url");
 
