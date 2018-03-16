@@ -124,6 +124,7 @@
 				}
 		}
 	}
+}
 
 
 	private function adfocus($url) {
