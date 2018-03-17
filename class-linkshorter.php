@@ -130,7 +130,8 @@
 	private function adfocus($url) {
 		global $adfocKey;
 
-		//add the http:// to the url if it haven't
+		//add the http:// to the url if it hasn't
+
 		if(!strpos(" ".$url, "http://") or !strpos(" ".$url, "https://")) {
 			$url = "http://".$url;
 			}
