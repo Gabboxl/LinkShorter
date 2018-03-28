@@ -221,7 +221,8 @@
 	        $this->response  =  $response->results->{$url}->shortUrl;
 
 	    } else {
-	        return null;
+				$this->setError($response->errorCode);
+	       // return null;
 	    }
 	}
 
