@@ -138,7 +138,13 @@
 
 		$adfoch = file_get_contents("http://adfoc.us/api/?key=$adfocKey&url=$url");
 
-		$this->response   =   $adfoch;
+		if (strpos(" ".$adfoch, "http")) {
+			$this->response   =   $adfoch;
+		} elseif($adfoch == "0") {
+			$this->setError("No http(s):// before the link.");
+
+		}
+
 
 
 
