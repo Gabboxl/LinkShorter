@@ -130,7 +130,7 @@
 	private function adfocus($url) {
 		global $adfocKey;
 
-		//add the http:// to the url if it hasn't
+		//now add the http:// to the url if it hasn't to avoid the relative error (0)
 
 		if(!strpos(" ".$url, "http://") or !strpos(" ".$url, "https://")) {
 			$url = "http://".$url;
@@ -140,8 +140,8 @@
 
 		if (strpos(" ".$adfoch, "http")) {
 			$this->response   =   $adfoch;
-		} elseif($adfoch == "0") {
-			$this->setError("No http(s):// before the link.");
+		} else {
+			$this->setError("$adfoch (The credentials are not right OR there isn't the http(s):// before the link.)");
 
 		}
 
