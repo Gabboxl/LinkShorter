@@ -25,3 +25,4 @@ $a = new linkshorter("adfly", "https://google.com");
 
 echo "Link: ".$a->getLink()."<br>";
 echo "Errors: ".$a->getError()."<br>";
+echo "Has Error: ".$a->hasError;
