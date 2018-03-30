@@ -49,7 +49,6 @@
 
     class linkshorter
     {
-
         public function __construct($service, $link, $domain = null, $advert_type = null)
         {
             if ($service == 'adfly' || $service == 'bitly' || $service == 'googl' || $service == 'adfocus' and $link != '' or $link != null) {
