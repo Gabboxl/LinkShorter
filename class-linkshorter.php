@@ -187,13 +187,13 @@
 
             $query = http_build_query($query);
 
-            $ch = curl_init();
+            $req = curl_init();
             curl_setopt($ch, CURLOPT_URL, 'http://api.bit.ly/shorten?'.$query);
             curl_setopt($ch, CURLOPT_HEADER, 0);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-            $response = curl_exec($ch);
-            curl_close($ch);
+            $response = curl_exec($req);
+            curl_close($req);
 
             $response = json_decode($response);
 
