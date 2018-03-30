@@ -49,8 +49,6 @@
 
     class linkshorter
     {
-        private $service;
-        private $link;
 
         public function __construct($service, $link, $domain = null, $advert_type = null)
         {
