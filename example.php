@@ -1,9 +1,9 @@
 <?php
 /**
- *Copyright (C) 2018  Gabboxl
- *This file is part of LinkShorter.
+ *  Copyright (C) 2018  Gabboxl
+ *  This file is part of LinkShorter.
  *
- *This program (LinkShorter) is free software: you can redistribute it and/or modify
+ *    This program (LinkShorter) is free software: you can redistribute it and/or modify
  *    it under the terms of the GNU Affero General Public License as published
  *    by the Free Software Foundation, either version 3 of the License, or
  *    (at your option) any later version.
