@@ -7,7 +7,7 @@ You can also log-in with your own credentials on all the services!
 
 -----------------------------------------------------
 
-The LinkShorter class is very simple to use and you can log-in with your own credentials on all the services (adfly, goo.gl etc..)!
+The LinkShorter class is very simple to use,
 
 here's an example:
 
@@ -19,7 +19,7 @@ replace `$service` variable with the name of the service (ex. adfly, adfocus, go
 
 To get the shorten link, use the `getLink` function: `$r->getLink();`
 
-**You can also get errors with the** `getError` **function.** (Please visit the relative section)
+**You can also get errors with the** `getError` **method.** (Please visit the relative section)
 
 There is a full working example in `example.php`.
 
