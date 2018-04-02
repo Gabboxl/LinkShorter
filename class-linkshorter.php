@@ -25,20 +25,19 @@ require 'settings.php'; //we include all credentials variables
     {
         public function __construct($service, $link, $domain = null, $advert_type = null)
         {
-          $methods = array("adfly", "bitly", "adfocus", "googl", "shinkin");
+            $methods = ['adfly', 'bitly', 'adfocus', 'googl', 'shinkin'];
 
-          if(!in_array($service, $methods)) {
+            if (!in_array($service, $methods)) {
+                $this->setError("Invalid service: $service");
 
-            $this->setError("Invalid service: $service");
-            return;
-          } elseif($link == '' or $link == null){
+                return;
+            } elseif ($link == '' or $link == null) {
+                $this->setError('The link is not set.');
 
-            $this->setError("The link is not set.");
-            return;
-          }
+                return;
+            }
 
-        $this->$service($link, $domain, $advert_type); //the domain and the advert_type are only avaible for the adfly method
-
+            $this->$service($link, $domain, $advert_type); //the domain and the advert_type are only avaible for the adfly method
         }
 
         private function setError($msg)
