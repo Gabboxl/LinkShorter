@@ -162,9 +162,9 @@ require 'settings.php'; //we include all credentials variables
             $query = http_build_query($query);
 
             $req = curl_init();
-            curl_setopt($ch, CURLOPT_URL, 'http://api.bit.ly/shorten?'.$query);
-            curl_setopt($ch, CURLOPT_HEADER, 0);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($req, CURLOPT_URL, 'http://api.bit.ly/shorten?'.$query);
+            curl_setopt($req, CURLOPT_HEADER, 0);
+            curl_setopt($req, CURLOPT_RETURNTRANSFER, 1);
 
             $response = curl_exec($req);
             curl_close($req);
