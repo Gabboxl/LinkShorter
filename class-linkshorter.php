@@ -152,7 +152,7 @@ require 'settings.php'; //we include all credentials variables
 
             if(!isset($json->id))
             {
-              $this->setError("REASON: ".$json->errors->reason.'<br>'."MESSAGE: ".$json->errors->message.'<br>'."LOCATION: ".$json->errors->location);
+              $this->setError("REASON: ".$json->errors->reason.'<br>'."MESSAGE: ".$json->errors->message.'<br>'."LOCATION: ".$json->errors->location.'<br>'."CODE: ".$json->code);
               return;
             }
 
