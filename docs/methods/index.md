@@ -1,15 +1,15 @@
 # Methods
 
 
-[adfly](/methods)
+[adfly](/adfly)
 
-[adfocus](/methods)
+[adfocus](/adfocus)
 
-[googl](/methods)
+[googl](/googl)
 
-[bitly](/methods)
+[bitly](/bitly)
 
-[shinkin](/methods)
+[shinkin](/shinkin)
 
 
 
