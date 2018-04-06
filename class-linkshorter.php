@@ -48,9 +48,12 @@ require 'settings.php'; //we include all credentials variables
 
         public function getError()
         {
-            if (isset($this->error)) {
-                return $this->error;
+            if (!isset($this->error)) {
+                $this->hasError = "false";
+                return;
             }
+
+            return $this->error;
         }
 
         public function getLink()
@@ -112,7 +115,7 @@ require 'settings.php'; //we include all credentials variables
             if (strpos(' '.$adfoch, 'http')) {
                 $this->response = $adfoch;
             } else {
-                $this->setError("$adfoch (The credentials are not right OR there isn't the http(s):// before the link.)");
+                $this->setError("$adfoch (The credentials are INVALID, OR there IS NOT the http(s):// before the link.)");
             }
         }
 
@@ -121,9 +124,16 @@ require 'settings.php'; //we include all credentials variables
             global $shinkid;
             global $shinktoken;
 
-            $data = file_get_contents("http://shink.me/stxt/0/id/$shinkid/auth_token/$shinktoken?s=$url");
+            $data = file_get_contents("http://shink.me/api/0/id/$shinkid/auth_token/$shinktoken?s=$url");
+            $data = json_decode($data);
 
-            $this->response = $data;
+            if($data->error != 0)
+            {
+              $this->setError($data->error);
+              return;
+            }
+
+            $this->response = "http://shink.me/".$data->hash;
         }
 
         private function googl($url)
