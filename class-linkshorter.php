@@ -49,7 +49,8 @@ require 'settings.php'; //we include all credentials variables
         public function getError()
         {
             if (!isset($this->error)) {
-                $this->hasError = "false";
+                $this->hasError = 'false';
+
                 return;
             }
 
@@ -127,13 +128,13 @@ require 'settings.php'; //we include all credentials variables
             $data = file_get_contents("http://shink.me/api/0/id/$shinkid/auth_token/$shinktoken?s=$url");
             $data = json_decode($data);
 
-            if($data->error != 0)
-            {
-              $this->setError($data->error);
-              return;
+            if ($data->error != 0) {
+                $this->setError($data->error);
+
+                return;
             }
 
-            $this->response = "http://shink.me/".$data->hash;
+            $this->response = 'http://shink.me/'.$data->hash;
         }
 
         private function googl($url)
