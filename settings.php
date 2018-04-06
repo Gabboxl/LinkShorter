@@ -6,20 +6,16 @@
     // Your user id
     $uIdAdfly = 16175835;
 
-
     //your bitly username
     $userbitly = 'bitly username here';
     //your bitly apikey
     $keybitly = 'bitly apikey here';
 
-
     // Get Goo.gl API key from : http://code.google.com/apis/console/
         $apiKeygoogle = 'your api key here';
 
-
 //		adfocus key
             $adfocKey = '66ebaa219a97eac02d8690addc1d8a4e';
-
 
             //your shink.me user id
                 $shinkid = '223430';
