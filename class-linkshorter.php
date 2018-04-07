@@ -51,7 +51,7 @@ require 'settings.php'; //we include all credentials variables
             if (!isset($this->error)) {
                 $this->hasError = 'false';
 
-                return;
+                return 'none';
             }
 
             return $this->error;
@@ -105,7 +105,7 @@ require 'settings.php'; //we include all credentials variables
         {
             global $adfocKey;
 
-            //now add the http:// to the url if it hasn't to avoid the relative error (0)
+            //now we add the http:// to the url if it hasn't to avoid the relative error (0)
 
             if (!strpos(' '.$url, 'http://') or !strpos(' '.$url, 'https://')) {
                 $url = 'http://'.$url;
