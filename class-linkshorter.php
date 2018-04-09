@@ -224,4 +224,4 @@ require 'settings.php'; //we include all credentials variables
            return;
       }
 
-    }
+  }
