@@ -25,7 +25,7 @@ require 'settings.php'; //we include all credentials variables
     {
         public function __construct($service, $link, $domain = null, $advert_type = null)
         {
-            $methods = ['adfly', 'bitly', 'adfocus', 'googl', 'shinkin'];
+            $methods = ['adfly', 'bitly', 'adfocus', 'googl', 'shinkin', 'shortest'];
 
             if (!in_array($service, $methods)) {
                 $this->setError("Invalid service: $service");
@@ -201,4 +201,27 @@ require 'settings.php'; //we include all credentials variables
                 // return null;
             }
         }
+
+         private function shortest($url) {
+           global $shortestkey;
+
+           $curl_url = "https://api.shorte.st/s/$shortestkey/$url";
+
+           $ch = curl_init();
+           curl_setopt($ch, CURLOPT_URL, $curl_url);
+           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+           $result = curl_exec($ch);
+           curl_close($ch);
+           $json = json_decode($result);
+
+            if($json->status != "ok"){
+             $this->setError("The shorte.st's api key may be not correct.");
+             return;
+            }
+
+           $this->response = $json->shortenedUrl;
+           return;
+      }
+
     }

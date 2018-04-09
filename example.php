@@ -18,8 +18,8 @@
  **/
 require 'class-linkshorter.php';
 
-$a = new linkshorter('adfly', 'https://google.com');
+$a = new linkshorter('adfly', 'https://google.com'); //replace "adfly" with the service which you prefer  ----  p.s. sorry for my English but i'm italian xd
 
 echo 'Link: '.$a->getLink().'<br>';
-echo 'Errors: '.$a->getError().'<br>';
+echo 'Error(s): '.$a->getError().'<br>';
 echo 'Has Error: '.$a->hasError;
