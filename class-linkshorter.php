@@ -25,7 +25,7 @@ require 'settings.php'; //we include all credentials variables
     {
         public function __construct($service, $link, $domain = null, $advert_type = null)
         {
-            $methods = ['adfly', 'bitly', 'adfocus', 'googl', 'shinkin', 'shortest']
+            $methods = ['adfly', 'bitly', 'adfocus', 'googl', 'shinkin', 'shortest'];
 
             if (!in_array($service, $methods)) {
                 $this->setError("Invalid service: $service");
