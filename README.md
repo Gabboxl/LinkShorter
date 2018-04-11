@@ -1,4 +1,4 @@
-# LinkShorter
+# LinkShorter  [![Build Status](https://travis-ci.org/Gabboxl/LinkShorter.svg?branch=master)](https://travis-ci.org/Gabboxl/LinkShorter)
 
 _A link. Shorter._
 
@@ -23,7 +23,7 @@ To get the shorten link, use the `getLink` function: `$r->getLink();`
 
 There is a full working example in `example.php`.
 
-You can find also a `method-specific documentation` (for adfly method, handling errors etc..) here: <coming soon>.
+You can find also a `method-specific documentation` (for adfly method, handling errors etc..) here: [here](https://linkshorter.gabboxl.ga/methods).
 
 
 This class and the documentation **are still in developement**, so you can find bugs or other issues.
