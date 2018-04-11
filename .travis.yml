@@ -21,4 +21,4 @@ matrix:
     - php: hhvm
   fast_finish: true
 
-script: ./class-linkshorter.php
+script: php class-linkshorter.php
