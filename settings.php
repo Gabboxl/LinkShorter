@@ -22,6 +22,5 @@
          //your shink.me auth_token
                 $shinktoken = 'zRoCZ1';
 
-
                 //shorte.st api key
     $shortestkey = 'your shorte.st api key here';
