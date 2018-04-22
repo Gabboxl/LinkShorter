@@ -224,4 +224,18 @@ require 'settings.php'; //we include all credentials variables
 
             $this->response = $json->shortenedUrl;
         }
+
+
+        private function tinyurl($url)
+        {
+
+          if (!strpos(' '.$url, 'http://') or !strpos(' '.$url, 'https://')) { //we add the http:// at the url if it hasn't becouse it will cause an error
+              $url = 'http://'.$url;
+          }
+
+          $data = file_get_contents('http://tinyurl.com/api-create.php?url='.$url);
+
+          $this->response   =    $data;
+
+        }
     }
