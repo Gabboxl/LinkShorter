@@ -225,7 +225,6 @@ require 'settings.php'; //we include all credentials variables
             $this->response = $json->shortenedUrl;
         }
 
-
         private function tinyurl($url)
         {
             if (!strpos(' '.$url, 'http://') or !strpos(' '.$url, 'https://')) { //we add the http:// at the url if it hasn't becouse it will cause an error
@@ -237,55 +236,55 @@ require 'settings.php'; //we include all credentials variables
             $this->response = $data;
         }
 
-
-        private function isgd($url, $shorturl = null){
+        private function isgd($url, $shorturl = null)
+        {
 
     //This function returns an array giving the results of your shortening
-    //If successful $result["shortURL"] will give your new shortened URL
-    //If unsuccessful $result["errorMessage"] will give an explanation of why
-    //and $result["errorCode"] will give a code indicating the type of error
+            //If successful $result["shortURL"] will give your new shortened URL
+            //If unsuccessful $result["errorMessage"] will give an explanation of why
+            //and $result["errorCode"] will give a code indicating the type of error
 
-    //See https://v.gd/apishorteningreference.php#errcodes for an explanation of what the
-    //error codes mean. In addition to that list this function can return an
-    //error code of -1 meaning there was an internal error e.g. if it failed
-    //to fetch the API page.
+            //See https://v.gd/apishorteningreference.php#errcodes for an explanation of what the
+            //error codes mean. In addition to that list this function can return an
+            //error code of -1 meaning there was an internal error e.g. if it failed
+            //to fetch the API page.
 
-    $url = urlencode($url);
-    $basepath = "https://is.gd/create.php?format=simple";
-    $result = array();
-    $result["errorCode"] = -1;
-    $result["shortURL"] = null;
-    $result["errorMessage"] = null;
+            $url = urlencode($url);
+            $basepath = 'https://is.gd/create.php?format=simple';
+            $result = [];
+            $result['errorCode'] = -1;
+            $result['shortURL'] = null;
+            $result['errorMessage'] = null;
 
-    //We need to set a context with ignore_errors on otherwise PHP doesn't fetch
-    //page content for failure HTTP status codes (v.gd needs this to return error
-    //messages when using simple format)
-    $opts = array("http" => array("ignore_errors" => true));
-    $context = stream_context_create($opts);
+            //We need to set a context with ignore_errors on otherwise PHP doesn't fetch
+            //page content for failure HTTP status codes (v.gd needs this to return error
+            //messages when using simple format)
+            $opts = ['http' => ['ignore_errors' => true]];
+            $context = stream_context_create($opts);
 
-    if($shorturl)
-        $path = $basepath."&shorturl=$shorturl&url=$url";
-    else
-        $path = $basepath."&url=$url";
+            if ($shorturl) {
+                $path = $basepath."&shorturl=$shorturl&url=$url";
+            } else {
+                $path = $basepath."&url=$url";
+            }
 
-    $response = @file_get_contents($path,false,$context);
+            $response = @file_get_contents($path, false, $context);
 
-    if(!isset($http_response_header))
-    {
-        $this->setError("Local error: Failed to fetch API page");
-        return;
-    }
+            if (!isset($http_response_header)) {
+                $this->setError('Local error: Failed to fetch API page');
 
-    //Hacky way of getting the HTTP status code from the response headers
-    if (!preg_match("{[0-9]{3}}",$http_response_header[0],$httpStatus))
-    {
-        $this->setError("Local error: Failed to extract HTTP status from result request");
-        return;
-    }
+                return;
+            }
 
-    $errorCode = -1;
-    switch($httpStatus[0])
-    {
+            //Hacky way of getting the HTTP status code from the response headers
+            if (!preg_match('{[0-9]{3}}', $http_response_header[0], $httpStatus)) {
+                $this->setError('Local error: Failed to extract HTTP status from result request');
+
+                return;
+            }
+
+            $errorCode = -1;
+            switch ($httpStatus[0]) {
         case 200:
             $errorCode = 0;
             break;
@@ -303,24 +302,21 @@ require 'settings.php'; //we include all credentials variables
             break;
     }
 
-    if($errorCode==-1)
-    {
-        $this->setError("Local error: Unexpected response code received from server");
-        return;
-    }
+            if ($errorCode == -1) {
+                $this->setError('Local error: Unexpected response code received from server');
 
-    $result["errorCode"] = $errorCode;
-    if($errorCode==0)
-        $result["shortURL"] = $this->response;
-    else
-        $this->setError($result["errorMessage"]);
+                return;
+            }
 
-    return;
-}
+            $result['errorCode'] = $errorCode;
+            if ($errorCode == 0) {
+                $result['shortURL'] = $this->response;
+            } else {
+                $this->setError($result['errorMessage']);
+            }
+        }
 
-
-
-//below line would be how to request a custom URL instead of an automatically generated one
+        //below line would be how to request a custom URL instead of an automatically generated one
 //in this case asking for https://v.gd/mytesturl
 //$result = vgdShorten("https://www.reddit.com/","mytesturl");
 /*
@@ -331,4 +327,4 @@ if($result["errorCode"]==3)
     //from using v.gd again for 1 minute or so.
 }
 */
-}
+    }
