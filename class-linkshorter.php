@@ -1,6 +1,6 @@
 <?php
 /**
- * LinkShorter - A class by Gabboxl made to short links using the most famous link shortener services  under license GNU AGPLv3.
+ * LinkShorter - A class by Gabboxl made to short links using the most famous link shortener APIs  under license GNU AGPLv3.
  *
  *Contacts: t.me/gabbo_xl (Telegram)
  *
