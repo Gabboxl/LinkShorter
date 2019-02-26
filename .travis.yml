@@ -3,17 +3,19 @@
 # Tell Travis CI we're using PHP
 language: php
 
+php:
+  - 5.5
+  - 5.4
+  - 5.5
+  - 5.6
+  - 7.0
+  - 7.2
+  - nightly
+  
 # Build matrix options
 matrix:
-  include:
-    - php: 5.5
-    - php: 5.4
-    - php: 5.5
-    - php: 5.6
-    - php: 7.0
-    - php: 7.2
+  allow_failures:
     - php: nightly
-    - php: hhvm
   fast_finish: true
 
 script: php class-linkshorter.php
